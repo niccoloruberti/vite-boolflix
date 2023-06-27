@@ -8,7 +8,7 @@ export default {
 
 <template lang="">
     <div>
-        
+        main
     </div>
 </template>
 

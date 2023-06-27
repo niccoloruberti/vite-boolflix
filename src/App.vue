@@ -2,17 +2,34 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
+import { store } from './store';
 import axios from 'axios';
 
 export default {
-  AppHeader,
-  AppMain
+  data() {
+    return {
+      store,
+    }
+  },
+  components: {
+    AppHeader,
+    AppMain,
+  },
+  methods: {
+    searchFilms() {
+      console.log(this.store.searchText)
+      axios.get(`${this.store.myUrl}&query=${this.store.searchText}`).then(function (response) {
+      console.log(response.data)
+      })
+    }
+  },
 }
 </script>
 
-<template lang="">
+<template>
   <div>
-    
+    <AppHeader @performSearch="searchFilms"/>
+    <AppMain />
   </div>
 </template>
 
