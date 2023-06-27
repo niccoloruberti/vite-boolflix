@@ -19,7 +19,8 @@ export default {
     searchFilms() {
       console.log(this.store.searchText)
       axios.get(`${this.store.myUrl}&query=${this.store.searchText}`).then(function (response) {
-      console.log(response.data)
+      store.movies = response.data.results;
+      console.log(store.movies);
       })
     }
   },
