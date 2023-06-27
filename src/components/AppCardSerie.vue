@@ -16,6 +16,7 @@ export default {
 <template lang="">
     <div class="card-container">
         <div class="card">
+            <img :src="`https://image.tmdb.org/t/p/w342${myCardSerie.backdrop_path}`">
             <h3>{{ myCardSerie.name }}</h3>
             <h4>{{ myCardSerie.original_name }}</h4>
             <img class="flag" v-if="(myCardSerie.original_language) == 'en'" :src="`http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg`">
