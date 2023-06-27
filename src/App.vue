@@ -16,11 +16,16 @@ export default {
     AppMain,
   },
   methods: {
-    searchFilms() {
-      console.log(this.store.searchText)
-      axios.get(`${this.store.myUrl}&query=${this.store.searchText}`).then(function (response) {
+    search() {
+      // chiamata per la ricerca dei film
+      axios.get(`${this.store.myUrlMovies}&query=${this.store.searchText}`).then(function (response) {
       store.movies = response.data.results;
       console.log(store.movies);
+      })
+      // chiamata per la ricerca delle serie
+      axios.get(`${this.store.myUrlSeries}&query=${this.store.searchText}`).then(function (response) {
+      store.series = response.data.results;
+      console.log(store.series);
       })
     }
   },
@@ -29,7 +34,8 @@ export default {
 
 <template>
   <div>
-    <AppHeader @performSearch="searchFilms"/>
+    <!-- evento in ascolto dell'input -->
+    <AppHeader @performSearch="search"/>
     <AppMain />
   </div>
 </template>
