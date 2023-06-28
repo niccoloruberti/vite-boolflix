@@ -17,14 +17,26 @@ export default {
 </script>
 
 <template lang="">
-    <div>
-        <!-- ciclo che crea le card dei film, passando i dati ad AppCard tramite props -->
-        <AppCardFilm v-for="(card,index) in this.store.movies" :key='index' :myCardFilm="card"/>
-        <!-- ciclo che crea le card delle serie tv, passando i dati ad AppCard tramite props -->
-        <AppCardSerie v-for="(card,index) in this.store.series" :key='index' :myCardSerie="card"/>
+    <div class="background bg-secondary">
+        <div class="container">
+            <div class="row">
+                <h1 v-if="(store.movies.length >= 1)" class="text-white my-3 mt-5 pt-5">FILM</h1>
+                <!-- ciclo che crea le card dei film, passando i dati ad AppCard tramite props -->
+                <AppCardFilm class="col-4 my-3" v-for="(card,index) in this.store.movies" :key='index' :myCardFilm="card"/>
+            </div>
+            <div class="row">
+                <h1 v-if="(store.movies.length >= 1)" class="text-white my-3 mt-5 pt-5">SERIE TV</h1>
+                <!-- ciclo che crea le card delle serie tv, passando i dati ad AppCard tramite props -->
+                <AppCardSerie class="col-4 my-3" v-for="(card,index) in this.store.series" :key='index' :myCardSerie="card"/>
+            </div>
+        </div>
     </div>
 </template>
 
-<style lang="">
-    
+<style lang="scss">
+
+.background {
+    min-height: 100vh;
+}
+
 </style>

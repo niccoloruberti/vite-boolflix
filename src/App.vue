@@ -35,7 +35,7 @@ export default {
 <template>
   <div>
     <!-- evento in ascolto dell'input -->
-    <AppHeader @performSearch="search"/>
+    <AppHeader class="fixed-top" @performSearch="search"/>
     <AppMain />
   </div>
 </template>
