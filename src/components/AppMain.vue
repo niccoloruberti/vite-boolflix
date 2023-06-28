@@ -1,6 +1,5 @@
 <script>
-import AppCardFilm from './AppCardFilm.vue';
-import AppCardSerie from './AppCardSerie.vue';
+import AppCard from './AppCard.vue';
 import { store } from '../store';
 
 export default {
@@ -10,8 +9,7 @@ export default {
         }
     },
     components: {
-        AppCardFilm,
-        AppCardSerie,
+        AppCard,
     }
 }
 </script>
@@ -22,12 +20,12 @@ export default {
             <div class="row">
                 <h1 v-if="(store.movies.length >= 1)" class="text-white my-3 mt-5 pt-5">FILM</h1>
                 <!-- ciclo che crea le card dei film, passando i dati ad AppCard tramite props -->
-                <AppCardFilm class="col-4 my-3" v-for="(card,index) in this.store.movies" :key='index' :myCardFilm="card"/>
+                <AppCard class="col-4 my-3" v-for="(card,index) in this.store.movies" :key='index' :myCard="card"/>
             </div>
             <div class="row">
-                <h1 v-if="(store.movies.length >= 1)" class="text-white my-3 mt-5 pt-5">SERIE TV</h1>
+                <h1 v-if="(store.series.length >= 1)" class="text-white my-3 mt-5 pt-5">SERIE TV</h1>
                 <!-- ciclo che crea le card delle serie tv, passando i dati ad AppCard tramite props -->
-                <AppCardSerie class="col-4 my-3" v-for="(card,index) in this.store.series" :key='index' :myCardSerie="card"/>
+                <AppCard class="col-4 my-3" v-for="(card,index) in this.store.series" :key='index' :myCard="card"/>
             </div>
         </div>
     </div>
