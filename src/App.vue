@@ -21,11 +21,13 @@ export default {
       axios.get(`${this.store.myUrlMovies}&query=${this.store.searchText}`).then(function (response) {
       store.movies = response.data.results;
       console.log(store.movies);
+      store.searchText = '';
       })
       // chiamata per la ricerca delle serie
       axios.get(`${this.store.myUrlSeries}&query=${this.store.searchText}`).then(function (response) {
       store.series = response.data.results;
       console.log(store.series);
+      store.searchText = '';
       })
     }
   },
