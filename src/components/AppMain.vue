@@ -27,6 +27,9 @@ export default {
                 <!-- ciclo che crea le card delle serie tv, passando i dati ad AppCard tramite props -->
                 <AppCard class="col-4 my-3" v-for="(card,index) in this.store.series" :key='index' :myCard="card"/>
             </div>
+            <div class="row">
+                <h1 v-if="(store.movies.length == 0) && (store.series.length == 0 )" class="text-white text-center mypt">RICERCA UN FILM O UNA SERIE TV</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -35,6 +38,10 @@ export default {
 
 .background {
     min-height: 100vh;
+}
+
+.mypt {
+    padding-top: 250px;
 }
 
 </style>
